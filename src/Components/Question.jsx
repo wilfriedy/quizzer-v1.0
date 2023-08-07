@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import QuestionList from "./QuestionList";
 import questions from "../questions_data";
+import Result from "./Result";
 
 function Question() {
   const [num, setNum] = useState(0);
@@ -48,9 +49,9 @@ function Question() {
     setNum((prev) => prev + 1);
     setUserAswers((prevAnswers) => {
       const newAnswers = [...prevAnswers, answer];
-      //   if (num >= questions.length - 1) {
-      //     checkAllAnswers(newAnswers, questions);
-      //   }
+      if (num >= questions.length - 1) {
+        checkAllAnswers(newAnswers, questions);
+      }
       return newAnswers;
     });
   };
@@ -64,11 +65,7 @@ function Question() {
     <>
       {num >= questions.length ? (
         <>
-          {console.log(userAswers)}
-          <h1>End!</h1>
-          <p>
-            Score is {score}/{questions.length} questions
-          </p>
+          <Result score={score} quizLength={questions.length} />
         </>
       ) : (
         <QuestionList
