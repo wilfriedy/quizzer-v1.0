@@ -18,10 +18,12 @@
   border-radius: 50%;
 }
 
-.timeout {
+.timeout .timer,
+.timeout.questions-container {
   border: 1px solid red;
   color: red;
 }
+
 .question-title {
   background-color: bisque;
   margin: 20px;
@@ -48,6 +50,6 @@
 
 @media screen and (max-width: 780px) {
   .questions-container {
-    width: 90%;
+    width: 350px;
   }
 }
